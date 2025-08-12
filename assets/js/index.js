@@ -10,7 +10,7 @@ function indexInit() {
                 name: '常用', type: 1, linecons: 'linecons-star', subMenuList: []
             },
             {
-                name: '总分类', type: 2, linecons: 'linecons-star',
+                name: '总分类', type: 2, linecons: 'linecons-search',
                 subMenuList: [
                     'GitHub Pages',
                     '开源项目',
@@ -23,7 +23,7 @@ function indexInit() {
                 name: '路由器', type: 1, linecons: 'linecons-star', subMenuList: []
             },
             {
-                name: '色色', type: 3, linecons: 'linecons-star', subMenuList: []
+                name: '色色', type: 3, linecons: 'linecons-heart', subMenuList: []
             }
         ];
 
@@ -75,6 +75,7 @@ function createMenuDom2(menu) {
         subMenuStrList.push(`
             <li>
                 <a href="#${subMenu}" class="smooth">
+                    <i class="linecons-star"></i>
                     <span class="title">${subMenu}</span>
                 </a>
             </li>
