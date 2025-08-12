@@ -10,6 +10,9 @@ function indexInit() {
                 name: '常用', type: 1, linecons: 'linecons-star', subMenuList: []
             },
             {
+                name: 'MyPages', type: 1, linecons: 'linecons-star', subMenuList: []
+            },
+            {
                 name: '总分类', type: 2, linecons: 'linecons-search',
                 subMenuList: [
                     'GitHub Pages',
