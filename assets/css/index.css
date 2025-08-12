@@ -1,0 +1,4 @@
+/* 私密导航默认隐藏 */
+.hidden-category {
+    display: none;
+}

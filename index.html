@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <!-- 设置页面字符编码为utf-8，确保正确显示中文等多字节字符 -->
+    <meta charset="utf-8">
+    <!-- 设置IE浏览器的文档模式，强制使用最新的渲染引擎 content="IE=edge" 表示使用IE最高版本的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--
+        设置视口属性，用于响应式设计
+        width=device-width: 设置视口宽度等于设备屏幕宽度
+        initial-scale=1.0: 设置初始缩放比例为1.0
+     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 设置页面标题，在浏览器标签页和收藏夹中显示"网址导航" -->
+    <title>网址导航</title>
+    <!-- 引入网站favicon图标文件 -->
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
+    <link rel="stylesheet" href="./assets/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="./assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/xenon-core.css">
+    <link rel="stylesheet" href="./assets/css/xenon-components.css">
+    <link rel="stylesheet" href="./assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="./assets/css/nav.css">
+    <script src="./assets/js/jquery-1.11.1.min.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/index.css"/>
+    <script src="./assets/js/index.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="page-body">
+    <!-- skin-white -->
+    <div class="page-container">
+        <div class="sidebar-menu toggle-others fixed">
+            <div class="sidebar-menu-inner">
+                <header class="logo-env">
+                    <!-- logo区域包含展开和收缩两种状态的logo显示，用于在不同屏幕尺寸下显示合适的logo样式 -->
+                    <div class="logo">
+                        <!-- 展开状态的logo链接 -->
+                        <a href="index.html" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png" width="100%" alt="" />
+                        </a>
+                        <!-- 收缩状态的logo链接 -->
+                        <a href="index.html" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png" width="40" alt="" />
+                        </a>
+                    </div>
+                    <!-- 移动端菜单切换按钮区域，包含用户信息菜单和移动端主菜单的触发按钮，仅在xs尺寸下可见 -->
+                    <div class="mobile-menu-toggle visible-xs">
+                        <!-- 移动端主菜单切换按钮 -->
+                        <a href="#" data-toggle="mobile-menu">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </div>
+                </header>
+
+                <ul id="main-menu" class="main-menu">
+<!--                    <li>-->
+<!--                        <a href="index.html">-->
+<!--                            <i class="linecons-heart"></i>-->
+<!--                            <span class="tooltip-blue">首页</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <div  id="main-navigation" class="main-content"></div>
+    </div>
+
+    <!-- 锚点平滑移动 -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+         //img lazy loaded
+         const observer = lozad();
+         observer.observe();
+
+        $(document).on('click', '.has-sub', function(){
+            var _this = $(this)
+            if(!$(this).hasClass('expanded')) {
+               setTimeout(function(){
+                    _this.find('ul').attr("style","")
+               }, 300);
+              
+            } else {
+                $('.has-sub ul').each(function(id,ele){
+                    var _that = $(this)
+                    if(_this.find('ul')[0] != ele) {
+                        setTimeout(function(){
+                            _that.attr("style","")
+                        }, 300);
+                    }
+                })
+            }
+        })
+        $('.user-info-menu .hidden-sm').click(function(){
+            if($('.sidebar-menu').hasClass('collapsed')) {
+                $('.has-sub.expanded > ul').attr("style","")
+            } else {
+                $('.has-sub.expanded > ul').show()
+            }
+        })
+        $("#main-menu li ul li").click(function() {
+            $(this).siblings('li').removeClass('active'); // 删除其他兄弟元素的样式
+            $(this).addClass('active'); // 添加当前元素的样式
+        });
+        $("a.smooth").click(function(ev) {
+            ev.preventDefault();
+
+            public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
+            ps_destroy();
+            $("html, body").animate({
+                scrollTop: $($(this).attr("href")).offset().top - 30
+            }, {
+                duration: 500,
+                easing: "swing"
+            });
+        });
+        return false;
+    });
+
+    var href = "";
+    var pos = 0;
+    $("a.smooth").click(function(e) {
+        $("#main-menu li").each(function() {
+            $(this).removeClass("active");
+        });
+        $(this).parent("li").addClass("active");
+        e.preventDefault();
+        href = $(this).attr("href");
+        pos = $(href).position().top - 30;
+    });
+    </script>
+    <!-- Bottom Scripts -->
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/TweenMax.min.js"></script>
+    <script src="./assets/js/resizeable.js"></script>
+    <script src="./assets/js/joinable.js"></script>
+    <script src="./assets/js/xenon-api.js"></script>
+    <script src="./assets/js/xenon-toggles.js"></script>
+    <!-- JavaScripts initializations and stuff -->
+    <script src="./assets/js/xenon-custom.js"></script>
+    <script src="./assets/js/lozad.js"></script>
+</body>
+
+</html>

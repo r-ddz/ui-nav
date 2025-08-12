@@ -1,0 +1,22 @@
+{
+  "className": "程序员",
+  "items": [
+    {
+      "name": "力扣 ",
+      "url": "https://leetcode.cn/",
+      "desc": "力扣 (LeetCode) 全球极客挚爱的技术成长平台"
+    },
+    {
+      "name": "BOSS直聘",
+      "url": "https://www.zhipin.com/"
+    },
+    {
+      "name": "gitee",
+      "url": "https://gitee.com/"
+    },
+    {
+      "name": "github",
+      "url": "https://github.com/"
+    }
+  ]
+}
