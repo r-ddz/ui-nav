@@ -1,8 +1,3 @@
-// 当DOM内容加载完成后执行指定的函数
-window.addEventListener('DOMContentLoaded', async () => {
-
-});
-
 function indexInit() {
     try {
         const menuList = [
