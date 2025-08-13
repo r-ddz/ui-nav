@@ -15,7 +15,6 @@ function indexInit() {
         {
             name: '总分类', type: 2, linecons: 'linecons-search',
             subMenuList: [
-                'GitHub_Pages',
                 '开源项目',
                 '收藏',
                 '程序员',
