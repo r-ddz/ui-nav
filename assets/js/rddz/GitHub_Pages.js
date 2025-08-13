@@ -1,0 +1,23 @@
+var RDDZ_DATA_GitHub_Pages = {
+    className: "GitHub_Pages",
+    items: [
+        {
+            name: "导航页",
+            url: "https://r-ddz.github.io/view_nav/",
+            desc: "导航页",
+            icon: "https://github.com/favicon.ico"
+        },
+        {
+            name: "docsify文档",
+            url: "https://r-ddz.github.io/view_docsify/",
+            desc: "docsify文档",
+            icon: "https://r-ddz.github.io/view_docsify/favicon.ico"
+        },
+        {
+            name: "view_test",
+            url: "https://r-ddz.github.io/view_test/",
+            desc: "view_test",
+            icon: "https://github.com/favicon.ico"
+        }
+    ]
+}

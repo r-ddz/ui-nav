@@ -1,42 +1,97 @@
+// 所有数据
+var RDDZ_DATA = [];
+// 所有数据长度，以此判断是否全部动态加载已经完毕，好加载导航dom
+var RDDZ_DATA_LENGTH = 0;
+
+//初始化
 function indexInit() {
-    try {
-        const menuList = [
-            {
-                name: '常用', type: 1, linecons: 'linecons-star', subMenuList: []
-            },
-            {
-                name: 'MyPages', type: 1, linecons: 'linecons-star', subMenuList: []
-            },
-            {
-                name: '总分类', type: 2, linecons: 'linecons-search',
-                subMenuList: [
-                    'GitHub Pages',
-                    '开源项目',
-                    '收藏',
-                    '程序员',
-                    '资源'
-                ]
-            },
-            {
-                name: '路由器', type: 1, linecons: 'linecons-star', subMenuList: []
-            },
-            {
-                name: '色色', type: 3, linecons: 'linecons-heart', subMenuList: []
-            }
-        ];
+    const menuList = [
+        {
+            name: '常用', type: 1, linecons: 'linecons-star', subMenuList: []
+        },
+        {
+            name: 'MyPages', type: 1, linecons: 'linecons-star', subMenuList: []
+        },
+        {
+            name: '总分类', type: 2, linecons: 'linecons-search',
+            subMenuList: [
+                'GitHub_Pages',
+                '开源项目',
+                '收藏',
+                '程序员',
+                '资源'
+            ]
+        },
+        {
+            name: '路由器', type: 1, linecons: 'linecons-star', subMenuList: []
+        },
+        {
+            name: '色色', type: 3, linecons: 'linecons-heart', subMenuList: []
+        }
+    ];
+    // 获取文件名列表
+    const fileNames = getFileNames(menuList);
+    RDDZ_DATA_LENGTH = fileNames.length;
 
-        // 创建菜单dom
-        createMenuDom(menuList);
+    // 给html页面动态引入js文件，回调函数会将数据加入到 RDDZ_DATA
+    fileNames.forEach(fileName => loadJavaScript(fileName));
 
-        // 创建导航dom
-        createNavDom(menuList);
+    // 创建菜单dom
+    createMenuDom(menuList);
+}
 
-    } catch (error) {
-        // 捕获数据加载过程中出现的错误
-        console.error('数据加载失败:', error);
-        // 向用户显示数据加载失败的提示信息
-        alert('页面数据加载失败，请稍后刷新重试');
+// 获取文件名列表
+function getFileNames(menuList) {
+    const jsonFiles = [];
+    menuList.forEach(menu => {
+        if (menu.type === 2) {
+            menu.subMenuList.forEach(subMenu => jsonFiles.push(subMenu));
+        } else{
+            jsonFiles.push(menu.name);
+        }
+    });
+    return jsonFiles;
+}
+
+function loadJavaScript(fileName) {
+    const filePath = `./assets/js/rddz/${fileName}.js`;
+    // 检查脚本是否已经存在，避免重复加载
+    const existingJavaScript = document.querySelector(`script[src="${filePath}"]`);
+    if (existingJavaScript) {
+        return;
     }
+
+    // 创建script标签
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = filePath;
+
+    // 添加加载成功回调
+    script.onload = function() {
+        loadSuccess(fileName);
+    };
+
+    // 添加加载失败回调
+    script.onerror = function() {
+        loadError(filePath);
+    };
+
+    // 将script标签添加到页面中
+    document.head.appendChild(script);
+}
+
+function loadSuccess(fileName) {
+    const objName = 'RDDZ_DATA_' + fileName;
+    // 收集数据
+    RDDZ_DATA.push(eval(objName));
+    // 如果数据已经收集完毕，则创建导航dom
+    if (RDDZ_DATA.length === RDDZ_DATA_LENGTH) {
+        createNavDom();
+    }
+}
+
+function loadError(filePath) {
+    alert('动态加载js失败，文件路径：' + filePath);
 }
 
 // 创建菜单dom
@@ -104,34 +159,22 @@ function createMenuDom3(menu) {
 }
 
 // 创建导航dom
-async function createNavDom(menuList) {
-    try {
-        // 获取json文件列表
-        const jsonFiles = getJsonFiles(menuList);
-        // 使用Promise.all并行获取所有json的数据
-        const categories = await Promise.all(jsonFiles.map(file => fetch(file).then(res => res.json())));
+function createNavDom() {
+    // 收集每一个json里导航的dom字符串
+    const jsonDomStrList = [];
+    RDDZ_DATA.forEach(data => {
+        jsonDomStrList.push(buildDomStrByJson(data));
+    });
 
-        // 收集每一个json里导航的dom字符串
-        const jsonDomStrList = [];
-        categories.forEach(data => {
-            jsonDomStrList.push(buildDomStrByJson(data));
-        });
+    // 组装整个json dom字符串，各自json dom字符串之间用<br />分隔
+    let jsonDomStr = jsonDomStrList.join('<br />');
 
-        // 组装整个json dom字符串，各自json dom字符串之间用<br />分隔
-        let jsonDomStr = jsonDomStrList.join('<br />');
+    // 最后再拼接一个页脚footer
+    jsonDomStr += buildFooterDomStr();
 
-        // 最后再拼接一个页脚footer
-        jsonDomStr += buildFooterDomStr();
-
-        // 将json dom字符串添加到导航dom中
-        const navDom = document.getElementById('main-navigation');
-        navDom.innerHTML = jsonDomStr;
-    } catch (error) {
-        // 捕获数据加载过程中出现的错误
-        console.error('数据加载失败:', error);
-        // 向用户显示数据加载失败的提示信息
-        alert('页面数据加载失败，请稍后刷新重试');
-    }
+    // 将json dom字符串添加到导航dom中
+    const navDom = document.getElementById('main-navigation');
+    navDom.innerHTML = jsonDomStr;
 }
 
 function buildDomStrByJson(data) {
@@ -196,24 +239,6 @@ function buildFooterDomStr(){
             </div>
         </footer>
     `;
-}
-
-// 获取json文件列表
-function getJsonFiles(menuList) {
-    const jsonFiles = [];
-    menuList.forEach(menu => {
-        if (menu.type === 2) {
-            menu.subMenuList.forEach(subMenu => jsonFiles.push(getJsonFilePath(subMenu)));
-        } else{
-            jsonFiles.push(getJsonFilePath(menu.name));
-        }
-    });
-    return jsonFiles;
-}
-
-// 获取json文件路径
-function getJsonFilePath(str) {
-    return `assets/json/${str}.json`;
 }
 
 // 获取网站favicon
