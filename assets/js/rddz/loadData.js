@@ -1,7 +1,9 @@
 // 所有数据
 var RDDZ_DATA = [];
-// 所有数据长度，以此判断是否全部动态加载已经完毕，好加载导航dom
-var RDDZ_DATA_LENGTH = 0;
+// 所有文件名
+var RDDZ_FILE_NAMES = [];
+// 计数器，记录加载成功了多少个js文件
+var RDDZ_LOAD_COUNTER = 0;
 
 //初始化
 function indexInit() {
@@ -29,11 +31,9 @@ function indexInit() {
         }
     ];
     // 获取文件名列表
-    const fileNames = getFileNames(menuList);
-    RDDZ_DATA_LENGTH = fileNames.length;
-
+    RDDZ_FILE_NAMES = getFileNames(menuList);
     // 给html页面动态引入js文件，回调函数会将数据加入到 RDDZ_DATA
-    fileNames.forEach(fileName => loadJavaScript(fileName));
+    RDDZ_FILE_NAMES.forEach(fileName => loadJavaScript(fileName));
 
     // 创建菜单dom
     createMenuDom(menuList);
@@ -67,30 +67,19 @@ function loadJavaScript(fileName) {
 
     // 添加加载成功回调
     script.onload = function() {
-        loadSuccess(fileName);
+        // 加载成功数量+1，如果数据已经收集完毕，则创建导航dom
+        if (++RDDZ_LOAD_COUNTER === RDDZ_FILE_NAMES.length) {
+            createNavDom();
+        }
     };
 
     // 添加加载失败回调
     script.onerror = function() {
-        loadError(filePath);
+        alert('动态加载js失败，文件路径：' + filePath);
     };
 
     // 将script标签添加到页面中
     document.head.appendChild(script);
-}
-
-function loadSuccess(fileName) {
-    const objName = 'RDDZ_DATA_' + fileName;
-    // 收集数据
-    RDDZ_DATA.push(eval(objName));
-    // 如果数据已经收集完毕，则创建导航dom
-    if (RDDZ_DATA.length === RDDZ_DATA_LENGTH) {
-        createNavDom();
-    }
-}
-
-function loadError(filePath) {
-    alert('动态加载js失败，文件路径：' + filePath);
 }
 
 // 创建菜单dom
@@ -159,6 +148,13 @@ function createMenuDom3(menu) {
 
 // 创建导航dom
 function createNavDom() {
+
+    RDDZ_FILE_NAMES.forEach(fileName => {
+        const objName = 'RDDZ_DATA_' + fileName;
+        // 收集数据
+        RDDZ_DATA.push(eval(objName));
+    })
+
     // 收集每一个json里导航的dom字符串
     const jsonDomStrList = [];
     RDDZ_DATA.forEach(data => {
