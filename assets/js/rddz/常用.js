@@ -10,6 +10,12 @@ var RDDZ_DATA_常用 = {
             name: "必应",
             url: "https://cn.bing.com",
             desc: "微软推出的国际搜索引擎，提供精准的英文搜索服务"
+        },
+        {
+            name: "腾讯文档",
+            url: "https://docs.qq.com/desktop/mydoc",
+            desc: "腾讯文档",
+            icon: "https://docs.gtimg.com/desktop/favicon2.ico"
         }
     ]
 };
