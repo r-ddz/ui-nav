@@ -26,6 +26,18 @@ var RDDZ_DATA_MyPages = {
             icon: "https://r-ddz.github.io/view_docsify/favicon.ico"
         },
         {
+            name: "VitePress文档（Cloudflare Pages）",
+            url: "https://ui-vitepress.pages.dev",
+            desc: "VitePress文档（Cloudflare Pages）",
+            icon: "https://ui-vitepress.pages.dev/favicon.png"
+        },
+        {
+            name: "VitePress文档（GitHub Pages）",
+            url: "https://r-ddz.github.io/ui-VitePress/",
+            desc: "VitePress文档（GitHub Pages）",
+            icon: "https://r-ddz.github.io/ui-VitePress/favicon.png"
+        },
+        {
             name: "view_test",
             url: "https://r-ddz.github.io/view_test/",
             desc: "view_test",
