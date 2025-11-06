@@ -17,6 +17,11 @@ var RDDZ_DATA_常用 = {
             url: "https://docs.qq.com/desktop/mydoc",
             desc: "腾讯文档",
             icon: "https://docs.gtimg.com/desktop/favicon2.ico"
-        }
+        },
+        {
+            name: "teambition任务管理",
+            url: "https://www.teambition.com/",
+            desc: "teambition任务管理"
+        },
     ]
 };
