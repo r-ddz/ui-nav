@@ -9,6 +9,9 @@ var RDDZ_LOAD_COUNTER = 0;
 function indexInit() {
     const menuList = [
         {
+            name: '九州通', type: 1, linecons: 'linecons-star', subMenuList: []
+        },
+        {
             name: '常用', type: 1, linecons: 'linecons-star', subMenuList: []
         },
         {
