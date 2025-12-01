@@ -9,7 +9,8 @@ var RDDZ_DATA_收藏 = {
         {
             name: "pc-builds",
             url: "https://pc-builds.com/zh/",
-            desc: "PC-Builds 门户网站提供了多种计算器，可与屏幕分辨率、游戏、处理器和显卡的任意组合一起使用。"
+            desc: "PC-Builds 门户网站提供了多种计算器，可与屏幕分辨率、游戏、处理器和显卡的任意组合一起使用。",
+            icon: "./assets/images/icon/默认.png"
         },
         {
             name: "iFixit：免费修理手册",
@@ -54,7 +55,8 @@ var RDDZ_DATA_收藏 = {
         {
             name: "anfuns动漫网",
             url: "https://www.anfuns.org/",
-            desc: "anfuns动漫网"
+            desc: "anfuns动漫网",
+            icon: "./assets/images/icon/默认.png"
         },
         {
             name: "XDM动漫",

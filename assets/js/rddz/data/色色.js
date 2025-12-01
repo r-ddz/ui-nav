@@ -6,37 +6,37 @@ var RDDZ_DATA_色色 = {
             name: "911爆料入口",
             url: "https://www.iblw12.com/",
             desc: "911爆料入口",
-            icon: "data:image/png;base64,..."
+            icon: "./assets/images/icon/默认.png"
         },
         {
             name: "911爆料1",
             url: "https://xn--4wikia-bn7i503npscw0ab37ji78b1bk.bjpbojo.xyz/",
-            icon: "data:image/png;base64,..."
+            icon: "./assets/images/icon/默认.png"
         },
         {
             name: "911爆料2",
             url: "https://hlj18.net/",
-            icon: "data:image/png;base64,..."
+            icon: "./assets/images/icon/默认.png"
         },
         {
             name: "911爆料3",
             url: "https://hlj22.co/",
-            icon: "data:image/png;base64,..."
+            icon: "./assets/images/icon/默认.png"
         },
         {
             name: "1024社区",
             url: "https://v11.c0205109.cc/pw/",
-            icon: "data:image/png;base64,..."
+            icon: "./assets/images/icon/默认.png"
         },
         {
             name: "1024社区",
             url: "https://v33.b05dkb.cc/pw/",
-            icon: "data:image/png;base64,..."
+            icon: "./assets/images/icon/默认.png"
         },
         {
             name: "1024社区",
             url: "https://1024xp.com/",
-            icon: "data:image/png;base64,..."
+            icon: "./assets/images/icon/默认.png"
         }
     ]
 }

@@ -4,7 +4,8 @@ var RDDZ_DATA_路由器 = {
         {
             name: "腾达 Tenda",
             url: "http://192.168.0.1/",
-            desc: "http://192.168.0.1/"
+            desc: "http://192.168.0.1/",
+            icon: "./assets/images/icon/默认.png"
         }
     ]
 }

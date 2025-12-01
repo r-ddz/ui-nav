@@ -10,7 +10,7 @@ var RDDZ_DATA_常用 = {
             name: "必应",
             url: "https://cn.bing.com",
             desc: "微软推出的国际搜索引擎，提供精准的英文搜索服务",
-            icon: "data:image/png;base64,..."
+            icon: "./assets/images/icon/默认.png"
         },
         {
             name: "腾讯文档",

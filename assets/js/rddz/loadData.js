@@ -53,7 +53,7 @@ function getFileNames(menuList) {
 }
 
 function loadJavaScript(fileName) {
-    const filePath = `./assets/js/rddz/${fileName}.js`;
+    const filePath = `./assets/js/rddz/data/${fileName}.js`;
     // 检查脚本是否已经存在，避免重复加载
     const existingJavaScript = document.querySelector(`script[src="${filePath}"]`);
     if (existingJavaScript) {
@@ -245,7 +245,7 @@ function getFavicon(item) {
         const domain = new URL(item.url).origin;
         return `${domain}/favicon.ico`;
     } catch {
-        return 'data:image/png;base64,...'; // 默认图标
+        return './assets/images/icon/默认.png'; // 默认图标
     }
 }
 
