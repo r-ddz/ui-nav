@@ -40,6 +40,11 @@ var RDDZ_DATA_九州通 = {
             desc: "项目管理平台-牛牛"
         },
         {
+            name: "能效管理平台",
+            url: "https://sepp.op.yyjzt.com/",
+            desc: "能效管理平台"
+        },
+        {
             name: "在线文档",
             url: "https://wiki.jztweb.com/pages/viewpage.action?pageId=92504458",
             desc: "在线文档"
