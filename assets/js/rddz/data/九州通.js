@@ -45,6 +45,11 @@ var RDDZ_DATA_九州通 = {
             desc: "能效管理平台"
         },
         {
+            name: "kafka-ui",
+            url: "https://kafka-ui.dev.jzterp.net/",
+            desc: "kafka-ui，已经给大家开通了权限（测试环境管理员，预发环境只读）"
+        },
+        {
             name: "在线文档",
             url: "https://wiki.jztweb.com/pages/viewpage.action?pageId=92504458",
             desc: "在线文档"
