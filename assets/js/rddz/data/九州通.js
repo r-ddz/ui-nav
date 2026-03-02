@@ -55,6 +55,11 @@ var RDDZ_DATA_九州通 = {
             desc: "菜单管理、查询单据定义（也可以查表 TB_SYS_BILLDEFINE） 暂无自己的账号"
         },
         {
+            name: "修改计划任务执行时间，无生产环境",
+            url: "https://elastic-job.dev.jzterp.net/#",
+            desc: "修改计划任务执行时间，无生产环境"
+        },
+        {
             name: "在线文档",
             url: "https://wiki.jztweb.com/pages/viewpage.action?pageId=92504458",
             desc: "在线文档"
