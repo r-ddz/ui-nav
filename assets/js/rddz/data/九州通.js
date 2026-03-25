@@ -50,6 +50,11 @@ var RDDZ_DATA_九州通 = {
             desc: "kafka-ui，已经给大家开通了权限（测试环境管理员，预发环境只读）"
         },
         {
+            name: "kafka-ui prod",
+            url: "http://kafka-ui.prod.jzterp.net/",
+            desc: "kafka-ui，sheng chan"
+        },
+        {
             name: "能效平台开发工具",
             url: "http://10.6.5.22:50003/index.html",
             desc: "菜单管理、查询单据定义（也可以查表 TB_SYS_BILLDEFINE） 暂无自己的账号"
