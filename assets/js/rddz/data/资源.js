@@ -7,6 +7,11 @@ var RDDZ_DATA_资源 = {
             desc: "盗版视频网站，可在线可下载，需要登录"
         },
         {
+            name: "观影-发布页",
+            url: "https://www.xn--ykq321c.com/?count=1",
+            desc: "盗版视频网站，可在线可下载，需要登录"
+        },
+        {
             name: "资源避难所",
             url: "http://flysheep.ysepan.com/",
             desc: "破解版游戏下载"
