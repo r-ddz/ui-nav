@@ -73,6 +73,11 @@ var RDDZ_DATA_九州通 = {
             name: "nacos地址",
             url: "https://nacos.dev.jzterp.net/nacos/#/configeditor?serverId=center&dataId=weberp-auxiliary-fat.yaml&group=DEFAULT_GROUP&namespace=9fc1529f-7b22-4969-80af-fd8f6e6183b8&edasAppName=&edasAppId=&searchDataId=&searchGroup=&pageSize=100&pageNo=1",
             desc: "nacos地址"
+        },
+        {
+            name: "数据库发布平台（test）",
+            url: "https://sql-release-platform.tat.yyjzt.com/instances",
+            desc: "数据库发布平台（test）"
         }
     ]
 };
