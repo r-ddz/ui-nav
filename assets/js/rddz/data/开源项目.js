@@ -2,6 +2,12 @@ var RDDZ_DATA_开源项目 = {
     className: "开源项目",
     items: [
         {
+            name: "AI Agent开发指南",
+            url: "https://github.com/adongwanai/AgentGuide",
+            desc: "https://adongwanai.github.io/AgentGuide | AI Agent开发指南 | LangGraph实战 | 高级RAG | 转行大模型 | 大模型面试 | 算法工程师 | 面试题库 | 强化学习｜数据合成",
+            icon: "./assets/images/icon/github.ico"
+        },
+        {
             name: "绝版游戏保护工程",
             url: "https://github.com/skywind3000/preserve-cd",
             desc: "preserve-cd 是一个在 GitHub 上的开源项目，全名为“绝版游戏保护工程”。该项目由 skywind3000 维护，目标是收集和保存经典的 DOS 及早期 Windows 单机游戏，避免这些老游戏因网络资源消失而彻底失传。",
