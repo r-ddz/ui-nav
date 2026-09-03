@@ -2,6 +2,11 @@ var RDDZ_DATA_程序员 = {
     className: "程序员",
     items: [
         {
+            name: "MCP 广场 ",
+            url: "https://modelscope.cn/mcp?page=1",
+            desc: "modelScope 魔搭社区"
+        },
+        {
             name: "力扣 ",
             url: "https://leetcode.cn/",
             desc: "力扣 (LeetCode) 全球极客挚爱的技术成长平台"
